@@ -52,7 +52,7 @@ public class HoWeatherDB {
 			ContentValues values = new ContentValues();
 			values.put("province_name", province.getProvinceName());
 			values.put("province_code", province.getProvinceCode());
-			db.insert("Probince", null, values);
+			db.insert("Province", null, values);
 		}
 	}
 	

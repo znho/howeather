@@ -10,12 +10,13 @@
         android:background="#484E61">
         <Button 
             android:id="@+id/switch_city"
-            android:layout_width="30dp"
+            android:layout_width="60dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:textSize="10dp"
-            android:text="回"/>
+            android:textSize="15dp"
+            android:background="#484E61"
+            android:text="返回"/>
         <TextView 
             android:id="@+id/city_name"
             android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
 		    android:layout_centerVertical="true"
 		    android:layout_marginRight="10dp"
 		    android:textSize="10dp"
-		    android:text="刷"/>        
+		    android:background="@drawable/shuaxin"/>        
         
     </RelativeLayout>
 

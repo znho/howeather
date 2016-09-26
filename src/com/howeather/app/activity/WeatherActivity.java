@@ -3,6 +3,7 @@ package com.howeather.app.activity;
 import javax.security.auth.PrivateCredentialPermission;
 
 import com.howeather.app.R;
+import com.howeather.app.serviver.AutoUpdateService;
 import com.howeather.app.util.HttpCallbackListener;
 import com.howeather.app.util.HttpUtil;
 import com.howeather.app.util.Utility;
@@ -157,7 +158,8 @@ public class WeatherActivity extends Activity implements OnClickListener{
 			currentDateText.setText(prefs.getString("current_date", ""));
 			weatherInfoLayout.setVisibility(View.VISIBLE);
 			cityNameText.setVisibility(View.VISIBLE);
-			
+			Intent intent = new Intent(this,AutoUpdateService.class);
+			startService(intent);
 		}
 
 

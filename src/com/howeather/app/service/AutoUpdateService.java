@@ -1,5 +1,6 @@
-package com.howeather.app.serviver;
+package com.howeather.app.service;
 
+import com.howeather.app.receiver.AutoUpdateReceiver;
 import com.howeather.app.util.HttpCallbackListener;
 import com.howeather.app.util.HttpUtil;
 import com.howeather.app.util.Utility;
@@ -31,9 +32,9 @@ public class AutoUpdateService extends Service {
 			}
 		}).start();
 		AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-		int anHour = 8* 60 *60 *1000; //8Сʱ
+		int anHour =8 * 60 * 60 *1000; //8Сʱ
 		long triggerAtTime =SystemClock.elapsedRealtime() + anHour;
-		Intent i = new Intent(this,AutoUpdateService.class);
+		Intent i = new Intent(this,AutoUpdateReceiver.class);
 		PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
 		manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtTime, pi);
 		
@@ -41,7 +42,6 @@ public class AutoUpdateService extends Service {
 	}
 
 	protected void updateWeather() {
-		// TODO Auto-generated method stub
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		String weatherCode = prefs.getString("weather_code", "");
 		String address =  "http://www.weather.com.cn/data/cityinfo/" + weatherCode +".html";
@@ -54,7 +54,6 @@ public class AutoUpdateService extends Service {
 			
 			@Override
 			public void onError(Exception e) {
-				// TODO Auto-generated method stub
 				e.printStackTrace();
 			}
 		});
